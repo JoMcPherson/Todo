@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../scripts/new_todo.js"></script>
+    <title>Add To Do</title>
+  </head>
+  <body>
+    <form id="new-todo-form">
+      <label for="user">User</label>
+      <select required id="user"></select>
+      <label for="category">Category</label>
+      <input required id="category" type="text" />
+      <label for="description">Description</label>
+      <input required id="description" type="text" />
+      <label for="deadline">Deadline</label>
+      <input required id="deadline" type="date" />
+      <label for="priority">Priority</label>
+      <input required id="priority" type="text" />
+    </form>
+    <button type="submit">Add To Do</button>
+  </body>
+</html>
