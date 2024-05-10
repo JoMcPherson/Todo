@@ -3,12 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
     <script src="../scripts/new_user.js"></script>
     <title>Register</title>
   </head>
   <body>
     <h1>Register</h1>
-    <form id="register">
+    <form class="form-group" id="register">
       <label for="first-name">First Name</label>
       <input required id="first-name" type="text" />
       <label for="last-name">Last Name</label>
@@ -19,7 +25,9 @@
       <input required id="password" type="password" />
       <label for="confirm-password">Confirm Password</label>
       <input required id="confirm-password" type="password" />
-      <button id="submit" type="submit">Register</button>
+      <button class="btn btn-primary" id="submit" type="submit">
+        Register
+      </button>
     </form>
   </body>
 </html>

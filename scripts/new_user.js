@@ -6,9 +6,17 @@ function init() {
     const first_name = document.getElementById("first-name").value;
     const last_name = document.getElementById("last-name").value;
     const name = first_name + " " + last_name;
-    const username = document.getElementById("username").value;
+    const username = document.getElementById("username");
     const password = document.getElementById("password").value;
     const confirm_password = document.getElementById("confirm-password").value;
+    fetch(`/api/username_available/${username.value}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (!data.available) {
+          alert("Username already taken");
+          username.value = "";
+        }
+      });
     if (password == confirm_password) {
       fetch("/api/users", {
         method: "POST",
@@ -17,7 +25,7 @@ function init() {
         },
         body: JSON.stringify({
           name,
-          username,
+          username: username.value,
           password,
         }),
       }).then((response) => {

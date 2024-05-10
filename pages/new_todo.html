@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="../scripts/new_todo.js"></script>
     <title>Add To Do</title>
   </head>
@@ -10,7 +11,7 @@
     <h1>Add a To Do</h1>
     <h2 id="success"></h2>
     <h3 id="add-another"></h3>
-    <form id="new-todo-form">
+    <form class="form-group" id="new-todo-form">
       <label for="user">User</label>
       <select required id="user"></select>
       <label for="category">Category</label>
@@ -25,9 +26,9 @@
         <option value="Medium">Medium</option>
         <option value="Low">Low</option>
       </select>
-      <button id="submit" type="submit">Add To Do</button>
+      <button class="btn btn-primary" id="submit" type="submit">Add To Do</button>
     </form>
     <h4 id="current-todos"></h3>
-    <table id="todos"></table>
+    <table class="table" id="todos"></table>
   </body>
 </html>
