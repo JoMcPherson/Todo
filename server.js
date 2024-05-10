@@ -37,6 +37,10 @@ app.get("/new_todo", function (req, res) {
   res.sendFile(path.join(__dirname + "/pages/new_todo.html"));
 });
 
+app.get("/new_user", function (req, res) {
+  res.sendFile(path.join(__dirname + "/pages/new_user.html"));
+});
+
 // Get all categories
 app.get("/api/categories", function (request, response) {
   console.info("LOG: Got a GET request for all categories");

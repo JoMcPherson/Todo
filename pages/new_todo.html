@@ -7,18 +7,27 @@
     <title>Add To Do</title>
   </head>
   <body>
+    <h1>Add a To Do</h1>
+    <h2 id="success"></h2>
+    <h3 id="add-another"></h3>
     <form id="new-todo-form">
       <label for="user">User</label>
       <select required id="user"></select>
       <label for="category">Category</label>
-      <input required id="category" type="text" />
+      <select required id="category"></select>
       <label for="description">Description</label>
-      <input required id="description" type="text" />
+      <input required id="description" type="textarea" />
       <label for="deadline">Deadline</label>
       <input required id="deadline" type="date" />
       <label for="priority">Priority</label>
-      <input required id="priority" type="text" />
+      <select required id="priority">
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+      <button id="submit" type="submit">Add To Do</button>
     </form>
-    <button type="submit">Add To Do</button>
+    <h4 id="current-todos"></h3>
+    <table id="todos"></table>
   </body>
 </html>

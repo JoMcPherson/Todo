@@ -32,7 +32,23 @@ function updateToDos() {
           day: "numeric",
         })}</td>
         <td>${todo.priority}</td>
-        <td>${todo.completed ? "yes" : "no"}</td>`;
+        <td>${todo.completed ? "yes" : "no"}</td>
+        <td><button class="complete" id="${todo.id}">${
+          todo.completed ? "Uncomplete" : "Complete"
+        }</button></td>`;
       });
+      const buttons = document.getElementsByClassName("complete");
+      for (let button of buttons) {
+        button.onclick = function () {
+          console.log("complete clicked");
+          fetch(`/api/todos/${button.id}`, {
+            method: "PUT",
+          }).then((response) => {
+            if (response.status === 200) {
+              updateToDos();
+            }
+          });
+        };
+      }
     });
 }

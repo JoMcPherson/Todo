@@ -3,7 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../scripts/new_user.js"></script>
     <title>Register</title>
   </head>
-  <body></body>
+  <body>
+    <h1>Register</h1>
+    <form id="register">
+      <label for="first-name">First Name</label>
+      <input required id="first-name" type="text" />
+      <label for="last-name">Last Name</label>
+      <input required id="last-name" type="text" />
+      <label for="username">Username</label>
+      <input required id="username" type="text" />
+      <label for="password">Password</label>
+      <input required id="password" type="password" />
+      <label for="confirm-password">Confirm Password</label>
+      <input required id="confirm-password" type="password" />
+      <button id="submit" type="submit">Register</button>
+    </form>
+  </body>
 </html>
