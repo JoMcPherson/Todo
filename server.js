@@ -286,15 +286,36 @@ app.put("/api/todos/:id", function (request, response) {
   });
 });
 
-/*
-// DELETE a todo
-app.delete('/api/todos/:id', function (request, response) {
-    console.info("LOG: Got a DELETE request for ToDos.  This feature is not implemented.");
-    response
-        .status(200)
-        .end();
-})
-*/
+// DELETE a todo by id
+app.delete("/api/todos/:id", function (request, response) {
+  const requestedId = request.params.id;
+  console.info("LOG: Got a DELETE request for todo", requestedId);
+
+  const json = fs.readFileSync(__dirname + "/data/todos.json", "utf8");
+  let todos = JSON.parse(json);
+
+  // Find the index of the requested todo
+  const index = todos.findIndex(
+    (todo) => String(todo.id) === String(requestedId)
+  );
+
+  // If todo not found, respond with 404
+  if (index === -1) {
+    response.status(404).json({ error: "Todo not found" });
+    return;
+  }
+
+  // Remove the todo from the array
+  todos.splice(index, 1);
+
+  // Write the updated todos array to the file
+  fs.writeFileSync(__dirname + "/data/todos.json", JSON.stringify(todos));
+
+  // LOG data for tracing
+  console.info("LOG: Deleted todo with id", requestedId);
+
+  response.status(204).end();
+});
 
 // POST a new user
 app.post("/api/users", function (request, response) {

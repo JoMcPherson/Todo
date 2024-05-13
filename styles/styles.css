@@ -1,0 +1,27 @@
+/* Importing a Custom Font */
+@font-face {
+  font-family: "Gribble";
+  src: url("../fonts/Gribble.ttf") format("truetype"); /* Directly reference the .ttf file */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Body styles */
+body {
+  font-family: "Gribble", Arial, sans-serif;
+}
+
+/* Heading styles */
+h1,
+h2,
+h3 {
+  font-family: "Gribble", sans-serif;
+}
+
+/* Custom class styles */
+.custom-text {
+  font-family: "Gribble", sans-serif;
+}
+
+/* Other styles */
+/* Add your other CSS styles below */

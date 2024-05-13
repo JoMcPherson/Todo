@@ -26,8 +26,10 @@ function updateToDos() {
         const card = document.createElement("div");
         card.classList.add("card", "mb-3", "shadow-sm", "mr-3");
         card.style.width = "19rem";
+        card.id = todo.id;
         card.innerHTML = `
           <div class="card-body">
+          <img src="../images/thumbtack.png" class="card-img-left" style="width: 2rem; margin-right: 0.5rem;" alt="Thumbtack Image">
             <h5 class="card-title">${todo.description}</h5>
             <p class="card-text">
               Deadline: ${date.toLocaleDateString("en-US", {
@@ -78,6 +80,16 @@ function updateToDos() {
           const completed_status = document.getElementById(`${id}-completed`);
           completed_status.hidden = !completed_status.hidden;
           const del = document.getElementById(`delete-${id}`);
+          del.onclick = function () {
+            fetch(`/api/todos/${id}`, {
+              method: "DELETE",
+            }).then((response) => {
+              if (response.status === 204) {
+                const card = document.getElementById(`${id}`);
+                card.hidden = true;
+              }
+            });
+          };
           del.hidden = !del.hidden;
         });
       });
