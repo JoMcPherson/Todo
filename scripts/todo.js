@@ -16,71 +16,80 @@ function init() {
 
 function updateToDos() {
   const user = document.getElementById("user-selection").value;
-  console.log(user, "user");
   const todos = document.getElementById("todos");
   fetch(`api/todos/byuser/${user}`)
     .then((response) => response.json())
     .then((data) => {
       console.log("data", data);
-      todos.innerHTML = `<th>Description</th><th>Deadline</th>`;
+      todos.innerHTML = "";
       data.forEach((todo) => {
         date = new Date(todo.deadline);
-        todos.insertRow().innerHTML = `  <td>${todo.description}</td>
-        <td>${date.toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-        })}</td>
-        <td><button name="details" class="btn btn-info" id="details-${
-          todo.id
-        }">More Details
-        </button></td>
-        <td hidden id="${todo.id}-category">${todo.category}</td>
-        <td hidden id="${todo.id}-priority" >${todo.priority}</td>
-        <td hidden id="${todo.id}-completed">${
-          todo.completed ? "<img src=''/>" : "<img src=''/>"
-        }</td> 
-        <td ><button hidden name="complete" class="btn btn-success" id="completed-${
-          todo.id
-        }">${todo.completed ? "Uncomplete" : "Complete"}</button></td>`;
+        const card = document.createElement("div");
+        card.classList.add("card", "mb-3", "shadow-sm", "mr-3", "width-30");
+        card.style.width = "18rem";
+        card.innerHTML = `
+          <div class="card-body">
+            <h5 class="card-title">${todo.description}</h5>
+            <p class="card-text">
+              Deadline: ${date.toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+              })}
+            </p>
+            <p class="card-text" hidden id="${todo.id}-category">
+              Category: ${todo.category}
+            </p>
+            <p class="card-text" hidden id="${todo.id}-priority">
+              Priority: ${todo.priority}
+            </p>
+            <p class="card-text" hidden id="${todo.id}-completed">
+              Completed: ${todo.completed ? "Yes" : "No"}
+            </p>
+            <button name="details" class="btn btn-info" id="details-${todo.id}">
+              More Details
+            </button>
+            <button name="complete" class="btn btn-success" id="completed-${
+              todo.id
+            }">
+              ${todo.completed ? "Uncomplete" : "Complete"}
+            </button>
+          </div>`;
+        todos.appendChild(card);
       });
-      const detailsButtons = document.getElementsByName("details");
-      for (let button of detailsButtons) {
-        button.onclick = function () {
+
+      document.getElementsByName("details").forEach((button) => {
+        button.addEventListener("click", function () {
           const id = button.id.split("-")[1];
           const category = document.getElementById(`${id}-category`);
-          category.hidden = false;
+          category.hidden = !category.hidden;
           const priority = document.getElementById(`${id}-priority`);
-          priority.hidden = false;
+          priority.hidden = !priority.hidden;
           const completed_status = document.getElementById(`${id}-completed`);
-          completed_status.hidden = false;
-          const completed = document.getElementById(`completed-${id}`);
-          completed.hidden = false;
-        };
-      }
-      const completeButtons = document.getElementsByName("complete");
-      for (let button of completeButtons) {
-        button.onclick = function () {
+          completed_status.hidden = !completed_status.hidden;
+          button.textContent = "Less Details";
+        });
+      });
+
+      document.getElementsByName("complete").forEach((button) => {
+        button.addEventListener("click", function () {
           const id = button.id.split("-")[1];
           fetch(`/api/todos/${id}`, {
             method: "PUT",
           }).then((response) => {
             if (response.status === 200) {
+              console.log("success", `${id}-completed`);
               const completed_status = document.getElementById(
                 `${id}-completed`
               );
-              if (completed_status.innerHTML === "yes") {
-                completed_status.innerHTML = "no";
-              } else {
-                completed_status.innerHTML = "yes";
-              }
-              if (button.innerHTML === "Uncomplete") {
-                button.innerHTML = "Complete";
-              } else {
-                button.innerHTML = "Uncomplete";
-              }
+              console.log(completed_status.textContent, "text");
+              completed_status.textContent = `Completed: ${
+                completed_status.textContent.includes("Yes") ? "No" : "Yes"
+              }`;
+              button.textContent =
+                button.textContent === "Complete" ? "Uncomplete" : "Complete";
             }
           });
-        };
-      }
+        });
+      });
     });
 }
