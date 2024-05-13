@@ -24,8 +24,8 @@ function updateToDos() {
       data.forEach((todo) => {
         date = new Date(todo.deadline);
         const card = document.createElement("div");
-        card.classList.add("card", "mb-3", "shadow-sm", "mr-3");
-        card.style.width = "19rem";
+        card.classList.add("card", "mb-3", "shadow-sm", "mr-2");
+        card.style = "margin: 0 auto; width: 18rem";
         card.id = todo.id;
         card.innerHTML = `
           <div class="card-body">
@@ -56,9 +56,8 @@ function updateToDos() {
             <button name="details" class="btn btn-info" id="details-${
               todo.id
             }">More Details</button>
-            <button name="complete" class="btn btn-success" id="completed-${
-              todo.id
-            }">
+            <button name="complete" class="btn btn-success"
+             id="completed-${todo.id}">
               ${todo.completed ? "Mark Pending" : "Mark Complete"}
             </button>
           </div>`;

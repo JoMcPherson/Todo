@@ -10,6 +10,7 @@
       crossorigin="anonymous"
     />
     <script src="../scripts/index.js"></script>
+    <link rel="stylesheet" href="../styles/styles.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -36,23 +37,22 @@
           </li>
           <li class="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle"
+              class="nav-link active dropdown-toggle"
               href="#"
               id="navbarDropdown"
               role="button"
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
+              >To Do</a
             >
-              To Do
-            </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/todos">View To Dos</a>
               <a class="dropdown-item" href="/new_todo">Add a To Do</a>
             </div>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/new_user">Register </a>
+            <a class="nav-link" href="/new_user">Register</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -68,7 +68,10 @@
         </form>
       </div>
     </nav>
-    <h1>Stay Organized</h1>
+    <div class="hero-image">
+      <div class="overlay"></div>
+      <h1>Stay Organized</h1>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
