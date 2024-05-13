@@ -20,13 +20,12 @@ function updateToDos() {
   fetch(`api/todos/byuser/${user}`)
     .then((response) => response.json())
     .then((data) => {
-      console.log("data", data);
       todos.innerHTML = "";
       data.forEach((todo) => {
         date = new Date(todo.deadline);
         const card = document.createElement("div");
-        card.classList.add("card", "mb-3", "shadow-sm", "mr-3", "width-30");
-        card.style.width = "18rem";
+        card.classList.add("card", "mb-3", "shadow-sm", "mr-3");
+        card.style.width = "19rem";
         card.innerHTML = `
           <div class="card-body">
             <h5 class="card-title">${todo.description}</h5>
@@ -45,13 +44,20 @@ function updateToDos() {
             <p class="card-text" hidden id="${todo.id}-completed">
               Completed: ${todo.completed ? "Yes" : "No"}
             </p>
-            <button name="details" class="btn btn-info" id="details-${todo.id}">
-              More Details
-            </button>
+            <div>
+            <button hidden name="delete" class="btn btn-danger mb-3" id="delete-${
+              todo.id
+            }">
+            Delete
+          </button>
+          </div>
+            <button name="details" class="btn btn-info" id="details-${
+              todo.id
+            }">More Details</button>
             <button name="complete" class="btn btn-success" id="completed-${
               todo.id
             }">
-              ${todo.completed ? "Uncomplete" : "Complete"}
+              ${todo.completed ? "Mark Pending" : "Mark Complete"}
             </button>
           </div>`;
         todos.appendChild(card);
@@ -59,6 +65,11 @@ function updateToDos() {
 
       document.getElementsByName("details").forEach((button) => {
         button.addEventListener("click", function () {
+          if (button.textContent === "More Details") {
+            button.textContent = "Less Details";
+          } else {
+            button.textContent = "More Details";
+          }
           const id = button.id.split("-")[1];
           const category = document.getElementById(`${id}-category`);
           category.hidden = !category.hidden;
@@ -66,7 +77,8 @@ function updateToDos() {
           priority.hidden = !priority.hidden;
           const completed_status = document.getElementById(`${id}-completed`);
           completed_status.hidden = !completed_status.hidden;
-          button.textContent = "Less Details";
+          const del = document.getElementById(`delete-${id}`);
+          del.hidden = !del.hidden;
         });
       });
 
@@ -77,16 +89,16 @@ function updateToDos() {
             method: "PUT",
           }).then((response) => {
             if (response.status === 200) {
-              console.log("success", `${id}-completed`);
               const completed_status = document.getElementById(
                 `${id}-completed`
               );
-              console.log(completed_status.textContent, "text");
               completed_status.textContent = `Completed: ${
                 completed_status.textContent.includes("Yes") ? "No" : "Yes"
               }`;
               button.textContent =
-                button.textContent === "Complete" ? "Uncomplete" : "Complete";
+                button.textContent === "Mark Complete"
+                  ? "Mark Pending"
+                  : "Mark Complete";
             }
           });
         });
