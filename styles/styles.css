@@ -60,6 +60,15 @@ h2 {
   padding: 1%;
   border-radius: 10px;
 }
+#home-link {
+  z-index: 2;
+  text-align: center;
+  color: white;
+}
+
+#home-link:hover {
+  text-decoration: underline;
+}
 nav {
   z-index: 3;
 }
