@@ -1,1 +1,87 @@
-[{"id":1,"name":"Ian Auston","username":"gamer04","password":"gamer04!"},{"id":2,"name":"Siddalee Grace","username":"cheer","password":"Cheer"},{"id":3,"name":"Pursalane Faith","username":"farmgirl","password":"smartKid"},{"id":4,"name":"Zephaniah Hughes","username":"corndog","password":"corn!dog"},{"id":5,"name":"Ezra Aidden","username":"theaterkid","password":"!theaterkid!"},{"id":6,"name":"Elisha Aslan","username":"gamer05","password":"gamer05!"},{"id":7,"name":"Betty Smalltree","username":"betty812","password":"not_telling_you"},{"id":8,"name":"Dudebro Chet","username":"dudebro","password":"EPIC!!!27"},{"id":9,"name":"Patricia McPherson","username":"joannamcpherson101","password":"test"},{"id":10,"name":"Murphy McPherson","username":"mmcpher","password":"test"},{"id":11,"name":"Honky Tonk","username":"honkytonk","password":"test"},{"id":12,"name":"Test McPherson","username":"tester","password":"test"},{"id":13,"name":"Peggy Fredman","username":"pfredman","password":"test"},{"id":14,"name":"Peggy Fredman","username":"pfreddyman","password":"test"},{"id":15,"name":"Dolly Parton","username":"dparton","password":"test"},{"id":16,"name":"CONAN OBRIEN","username":"COBRIEN","password":"test"},{"id":17,"name":"LUCY LIU","username":"LIU","password":"TEST"},{"id":18,"name":"Dylan Obrien","username":"dylan","password":"test"},{"id":19,"name":"First Last","username":"flast","password":"test"},{"id":20,"name":"Lala Lala","username":"lala","password":"lala"}]
+[
+  {
+    "id": 1,
+    "name": "Dolly Parton",
+    "username": "gamer04",
+    "password": "gamer04!"
+  },
+  { "id": 2, "name": "Troye Sivan", "username": "cheer", "password": "Cheer" },
+  {
+    "id": 3,
+    "name": "Chapell Roan",
+    "username": "farmgirl",
+    "password": "smartKid"
+  },
+  {
+    "id": 4,
+    "name": "Maude Lator",
+    "username": "corndog",
+    "password": "corn!dog"
+  },
+  {
+    "id": 5,
+    "name": "King Princess",
+    "username": "theaterkid",
+    "password": "!theaterkid!"
+  },
+  {
+    "id": 6,
+    "name": "Hozier",
+    "username": "gamer05",
+    "password": "gamer05!"
+  },
+  {
+    "id": 7,
+    "name": "Kacey Musgraves",
+    "username": "betty812",
+    "password": "not_telling_you"
+  },
+  {
+    "id": 8,
+    "name": "Anderson East",
+    "username": "dudebro",
+    "password": "EPIC!!!27"
+  },
+  {
+    "id": 9,
+    "name": "George Ezra",
+    "username": "joannamcpherson101",
+    "password": "test"
+  },
+  { "id": 10, "name": "Rihanna", "username": "mmcpher", "password": "test" },
+  {
+    "id": 11,
+    "name": "Suki Waterhouse",
+    "username": "honkytonk",
+    "password": "test"
+  },
+  { "id": 12, "name": "Katy Perry", "username": "tester", "password": "test" },
+  {
+    "id": 13,
+    "name": "John Legend",
+    "username": "pfredman",
+    "password": "test"
+  },
+  {
+    "id": 14,
+    "name": "Paris Hilton",
+    "username": "pfreddyman",
+    "password": "test"
+  },
+  {
+    "id": 15,
+    "name": "Billie Eilish",
+    "username": "dparton",
+    "password": "test"
+  },
+  {
+    "id": 16,
+    "name": "Harry Styles",
+    "username": "COBRIEN",
+    "password": "test"
+  },
+  { "id": 17, "name": "Elton John", "username": "LIU", "password": "TEST" },
+  { "id": 18, "name": "Adele", "username": "dylan", "password": "test" },
+  { "id": 19, "name": "Sam Smith", "username": "flast", "password": "test" },
+  { "id": 20, "name": "Dua Lipa", "username": "lala", "password": "lala" }
+]

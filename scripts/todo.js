@@ -15,54 +15,90 @@ function init() {
 }
 
 function updateToDos() {
+  const searchInput = document.getElementById("searchInput");
+  searchInput.addEventListener("input", async function (event) {
+    const dropdownList = document.getElementById("dropdownMenu");
+    dropdownList.innerHTML = "";
+    const search_term = searchInput.value.toLowerCase();
+    const response = await fetch("/api/todos");
+    const data = await response.json();
+
+    if (data.length > 0) {
+      data.forEach((item) => {
+        console.log(item.description.toLowerCase(), "item");
+        console.log(search_term, "search_term");
+        if (item.description.toLowerCase().includes(search_term)) {
+          const listItem = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = `/todo_details?id=${item.id}`; // Add your link URL here
+          link.textContent = item.description;
+          listItem.appendChild(link);
+          dropdownList.appendChild(listItem);
+        }
+      });
+    } else {
+      dropdownList.innerHTML =
+        '<option value="" selected disabled hidden>No items found</option>';
+    }
+  });
+
   const user = document.getElementById("user-selection").value;
   const todos = document.getElementById("todos");
   fetch(`api/todos/byuser/${user}`)
     .then((response) => response.json())
     .then((data) => {
       todos.innerHTML = "";
+      const row = document.createElement("div");
+      row.classList.add("row");
+
       data.forEach((todo) => {
         date = new Date(todo.deadline);
+        const col = document.createElement("div");
+        col.classList.add("col-md-4", "mb-3");
+
         const card = document.createElement("div");
-        card.classList.add("card", "mb-3", "shadow-sm", "mr-2");
-        card.style = "margin: 0 auto; width: 18rem";
+        card.classList.add("card", "shadow-sm");
         card.id = todo.id;
+
         card.innerHTML = `
-          <div class="card-body">
+        <div class="card-body">
           <img src="../images/thumbtack.png" class="card-img-left" style="width: 2rem; margin-right: 0.5rem;" alt="Thumbtack Image">
-            <h5 class="card-title">${todo.description}</h5>
-            <p class="card-text">
-              Deadline: ${date.toLocaleDateString("en-US", {
-                month: "short",
-                day: "numeric",
-              })}
-            </p>
-            <p class="card-text" hidden id="${todo.id}-category">
-              Category: ${todo.category}
-            </p>
-            <p class="card-text" hidden id="${todo.id}-priority">
-              Priority: ${todo.priority}
-            </p>
-            <p class="card-text" hidden id="${todo.id}-completed">
-              Completed: ${todo.completed ? "Yes" : "No"}
-            </p>
-            <div>
+          <h5 class="card-title">${todo.description}</h5>
+          <p class="card-text">
+            Deadline: ${date.toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
+            })}
+          </p>
+          <p class="card-text" hidden id="${todo.id}-category">
+            Category: ${todo.category}
+          </p>
+          <p class="card-text" hidden id="${todo.id}-priority">
+            Priority: ${todo.priority}
+          </p>
+          <p class="card-text" hidden id="${todo.id}-completed">
+            Completed: ${todo.completed ? "Yes" : "No"}
+          </p>
+          <div>
             <button hidden name="delete" class="btn btn-danger mb-3" id="delete-${
               todo.id
-            }">
-            Delete
-          </button>
+            }">Delete</button>
           </div>
-            <button name="details" class="btn btn-info" id="details-${
-              todo.id
-            }">More Details</button>
-            <button name="complete" class="btn btn-success"
-             id="completed-${todo.id}">
-              ${todo.completed ? "Mark Pending" : "Mark Complete"}
-            </button>
-          </div>`;
-        todos.appendChild(card);
+          <button name="details" class="btn btn-info" id="details-${
+            todo.id
+          }">More Details</button>
+          <button name="complete" class="btn btn-success" id="completed-${
+            todo.id
+          }">
+            ${todo.completed ? "Mark Pending" : "Mark Complete"}
+          </button>
+        </div>`;
+
+        col.appendChild(card);
+        row.appendChild(col);
       });
+
+      todos.appendChild(row);
 
       document.getElementsByName("details").forEach((button) => {
         button.addEventListener("click", function () {

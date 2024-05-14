@@ -37,6 +37,10 @@ app.get("/new_todo", function (req, res) {
   res.sendFile(path.join(__dirname + "/pages/new_todo.html"));
 });
 
+app.get("/todo_details", function (req, res) {
+  res.sendFile(path.join(__dirname + "/pages/todo_details.html"));
+});
+
 app.get("/new_user", function (req, res) {
   res.sendFile(path.join(__dirname + "/pages/new_user.html"));
 });
