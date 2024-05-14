@@ -1,20 +1,26 @@
 window.onload = init;
 
-function init() {
+async function init() {
   const users = document.getElementById("user-selection");
+  const searchParams = new URLSearchParams(window.location.search);
+  const id = searchParams.get("user");
   users.innerHTML = "<option id='default'>Select User</option>";
+  console.log(id);
   fetch("api/users")
     .then((response) => response.json())
     .then((data) => {
       data.forEach((user) => {
-        users.innerHTML += `<option value="${user.id}">${user.name}</option>`;
+        if (user.id === parseInt(id)) {
+          users.innerHTML += `<option value="${user.id}" selected>${user.name}</option>`;
+          updateToDos();
+        } else {
+          users.innerHTML += `<option value="${user.id}">${user.name}</option>`;
+        }
       });
     })
     .catch((error) => console.error("Error fetching data:", error));
   users.onchange = updateToDos;
-}
 
-function updateToDos() {
   const searchInput = document.getElementById("searchInput");
   searchInput.addEventListener("input", async function (event) {
     const dropdownList = document.getElementById("dropdownMenu");
@@ -41,8 +47,11 @@ function updateToDos() {
         '<option value="" selected disabled hidden>No items found</option>';
     }
   });
+}
 
+function updateToDos() {
   const user = document.getElementById("user-selection").value;
+
   const todos = document.getElementById("todos");
   fetch(`api/todos/byuser/${user}`)
     .then((response) => response.json())

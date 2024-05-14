@@ -34,7 +34,7 @@ function init() {
     .then((response) => response.json())
     .then((data) => {
       data.forEach((user) => {
-        users.innerHTML += `<option value="${user.id}">${user.name}</option>`;
+        users.innerHTML += `<option value="${user.id}" id="${user.id}">${user.name}</option>`;
       });
     })
     .catch((error) => console.error("Error fetching data:", error));
@@ -57,6 +57,8 @@ function init() {
   form.onsubmit = async function (event) {
     event.preventDefault();
     const userid = document.getElementById("user").value;
+    const username = document.getElementById(userid).textContent;
+    console.log(username, "username");
     const category = document.getElementById("category").value;
     const description = document.getElementById("description").value;
     const deadline = document.getElementById("deadline").value;
@@ -83,11 +85,11 @@ function init() {
             document.getElementById("priority").value = "";
             document.getElementById("category").value = "Select Category";
             document.getElementById("user").value = "Select User";
-            console.log(data);
+            console.log(userid, "userid");
             const success = document.getElementById("success");
             success.hidden = false;
             const h4 = document.getElementById("current-todos");
-            h4.innerHTML = `View all todos? <a href="/todos">Click here</a>`;
+            h4.innerHTML = `View all todos for ${username}? <a href="/todos?user=${userid}">Click here</a>`;
           });
       } else {
         console.error("Failed to create course");

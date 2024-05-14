@@ -2,7 +2,7 @@ window.onload = init;
 
 async function init() {
   const searchInput = document.getElementById("searchInput");
-  searchInput.addEventListener("input", async function (event) {
+  searchInput.addEventListener("input", async function () {
     const dropdownList = document.getElementById("dropdownMenu");
     dropdownList.innerHTML = "";
     const search_term = searchInput.value.toLowerCase();
