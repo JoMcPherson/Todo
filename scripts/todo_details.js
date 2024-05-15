@@ -8,6 +8,7 @@ async function init() {
     const search_term = searchInput.value.toLowerCase();
     const response = await fetch("/api/todos");
     const data = await response.json();
+    console.log("data", data);
 
     if (data.length > 0) {
       data.forEach((item) => {
@@ -16,20 +17,22 @@ async function init() {
         if (item.description.toLowerCase().includes(search_term)) {
           const listItem = document.createElement("li");
           const link = document.createElement("a");
-          link.href = `/todo_details?id=${item.id}`; // Add your link URL here
+          link.href = `/todo_details?id=${item.id}`;
           link.textContent = item.description;
           listItem.appendChild(link);
           dropdownList.appendChild(listItem);
         }
       });
-    } else {
-      dropdownList.innerHTML =
-        '<option value="" selected disabled hidden>No items found</option>';
+
+      if (dropdownList.innerHTML === "") {
+        dropdownList.innerHTML =
+          '<option value="" selected>No Results</option>';
+      }
     }
   });
 
   const searchParams = new URLSearchParams(window.location.search);
-  const response = await fetch("api/users"); // Wait for the fetch to complete
+  const response = await fetch("api/users");
   const users = await response.json();
   const id = searchParams.get("id");
   fetch(`api/todos/${id}`)

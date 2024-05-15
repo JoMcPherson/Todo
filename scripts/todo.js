@@ -22,12 +22,13 @@ async function init() {
   users.onchange = updateToDos;
 
   const searchInput = document.getElementById("searchInput");
-  searchInput.addEventListener("input", async function (event) {
+  searchInput.addEventListener("input", async function () {
     const dropdownList = document.getElementById("dropdownMenu");
     dropdownList.innerHTML = "";
     const search_term = searchInput.value.toLowerCase();
     const response = await fetch("/api/todos");
     const data = await response.json();
+    console.log("data", data);
 
     if (data.length > 0) {
       data.forEach((item) => {
@@ -36,15 +37,17 @@ async function init() {
         if (item.description.toLowerCase().includes(search_term)) {
           const listItem = document.createElement("li");
           const link = document.createElement("a");
-          link.href = `/todo_details?id=${item.id}`; // Add your link URL here
+          link.href = `/todo_details?id=${item.id}`;
           link.textContent = item.description;
           listItem.appendChild(link);
           dropdownList.appendChild(listItem);
         }
       });
-    } else {
-      dropdownList.innerHTML =
-        '<option value="" selected disabled hidden>No items found</option>';
+
+      if (dropdownList.innerHTML === "") {
+        dropdownList.innerHTML =
+          '<option value="" selected>No Results</option>';
+      }
     }
   });
 }
