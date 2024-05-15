@@ -66,3 +66,29 @@ This is intended to be the backend for the Stay Organized workshop.
     { id: 20, name: "Dua Lipa", username: "lala" },
   ];
   ```
+
+## Technology Used
+
+This web application uses HTML, CSS, Bootstrap, JavaScript, and an Express server. In HTML, the structure of the website is defined and links to JS,CSS and Bootstrap for displaying content. CSS and Bootstrap are utilized for styling the webpage, ensuring a visually appealing layout using classes like card, col-md-4, and btn. JavaScript handles dynamic behavior such as fetching data from APIs (fetch), updating the UI based on user interactions (addEventListener), and manipulating the DOM (innerHTML, createElement). The Express server, configured with middleware like express, cors, and path, serves static files, handles API endpoints (GET requests for different pages), and provides routes for frontend navigation. Overall, this setup enables a responsive and interactive web experience, combining frontend technologies with a backend server for data handling and routing.
+
+## Home Page
+
+![Home Page](/images/home.png)
+
+---
+
+## Add a To Do Page
+
+![Add a To Do Page](/images/new_todo.png)
+
+---
+
+## View To Do Pages
+
+![To Do Page](/images/to_do.png)
+
+## Register New User
+
+---
+
+![Register Page](/images/register.png)

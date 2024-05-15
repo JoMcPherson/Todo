@@ -1,87 +1,102 @@
 [
   {
     "id": 1,
-    "name": "Dolly Parton",
+    "name": "Vito Corleone",
     "username": "gamer04",
     "password": "gamer04!"
   },
-  { "id": 2, "name": "Troye Sivan", "username": "cheer", "password": "Cheer" },
+  {
+    "id": 2,
+    "name": "Michael Corleone",
+    "username": "cheer",
+    "password": "Cheer"
+  },
   {
     "id": 3,
-    "name": "Chapell Roan",
+    "name": "Tony Montana",
     "username": "farmgirl",
     "password": "smartKid"
   },
   {
     "id": 4,
-    "name": "Maude Lator",
+    "name": "Tom Hagen",
     "username": "corndog",
     "password": "corn!dog"
   },
   {
     "id": 5,
-    "name": "King Princess",
+    "name": "Sonny Corleone",
     "username": "theaterkid",
     "password": "!theaterkid!"
   },
   {
     "id": 6,
-    "name": "Hozier",
+    "name": "Henry Hill",
     "username": "gamer05",
     "password": "gamer05!"
   },
   {
     "id": 7,
-    "name": "Kacey Musgraves",
+    "name": "Kay Adams",
     "username": "betty812",
     "password": "not_telling_you"
   },
   {
     "id": 8,
-    "name": "Anderson East",
+    "name": "Angelo Bruno",
     "username": "dudebro",
     "password": "EPIC!!!27"
   },
   {
     "id": 9,
-    "name": "George Ezra",
+    "name": "Gus Fring",
     "username": "joannamcpherson101",
     "password": "test"
   },
-  { "id": 10, "name": "Rihanna", "username": "mmcpher", "password": "test" },
+  {
+    "id": 10,
+    "name": "Rico Bandello",
+    "username": "mmcpher",
+    "password": "test"
+  },
   {
     "id": 11,
-    "name": "Suki Waterhouse",
+    "name": "Santino 'Sonny' Corleone",
     "username": "honkytonk",
     "password": "test"
   },
-  { "id": 12, "name": "Katy Perry", "username": "tester", "password": "test" },
+  { "id": 12, "name": "Karen Hill", "username": "tester", "password": "test" },
   {
     "id": 13,
-    "name": "John Legend",
+    "name": "Joe Pesci",
     "username": "pfredman",
     "password": "test"
   },
   {
     "id": 14,
-    "name": "Paris Hilton",
+    "name": "Paul Cicero",
     "username": "pfreddyman",
     "password": "test"
   },
   {
     "id": 15,
-    "name": "Billie Eilish",
+    "name": "Benjamin 'Lefty' Ruggiero",
     "username": "dparton",
     "password": "test"
   },
   {
     "id": 16,
-    "name": "Harry Styles",
+    "name": "Henry Hill",
     "username": "COBRIEN",
     "password": "test"
   },
-  { "id": 17, "name": "Elton John", "username": "LIU", "password": "TEST" },
-  { "id": 18, "name": "Adele", "username": "dylan", "password": "test" },
-  { "id": 19, "name": "Sam Smith", "username": "flast", "password": "test" },
-  { "id": 20, "name": "Dua Lipa", "username": "lala", "password": "lala" }
+  { "id": 17, "name": "Eddie Valiant", "username": "LIU", "password": "TEST" },
+  { "id": 18, "name": "Al Capone", "username": "dylan", "password": "test" },
+  { "id": 19, "name": "Sal Tessio", "username": "flast", "password": "test" },
+  {
+    "id": 20,
+    "name": "Dominic Toretto",
+    "username": "lala",
+    "password": "lala"
+  }
 ]
