@@ -22,12 +22,9 @@ function init() {
     const search_term = searchInput.value.toLowerCase();
     const response = await fetch("/api/todos");
     const data = await response.json();
-    console.log("data", data);
 
     if (data.length > 0) {
       data.forEach((item) => {
-        console.log(item.description.toLowerCase(), "item");
-        console.log(search_term, "search_term");
         if (item.description.toLowerCase().includes(search_term)) {
           const listItem = document.createElement("li");
           const link = document.createElement("a");
@@ -54,7 +51,6 @@ function init() {
     const password = document.getElementById("password").value;
     const confirm_password = document.getElementById("confirm-password").value;
     const profilePicUrl = document.getElementById("profile").value;
-    console.log(profilePicUrl, "profilePicUrl form submit");
     // Check username availability
     fetch(`/api/username_available/${username}`)
       .then((response) => response.json())
@@ -79,9 +75,7 @@ function init() {
             }).then((response) => {
               if (response.status === 201) {
                 response.json().then((data) => {
-                  console.log(data);
                   form.hidden = true;
-                  console.log(form);
                   window.location.href = `/todos?user=${data.id}`;
                 });
               } else {
@@ -113,7 +107,7 @@ function uploadFile() {
         const response = JSON.parse(xhr.responseText);
         const profile = document.getElementById("profile");
         profile.value = response.path;
-        status.textContent = "File uploaded successfully";
+        status.textContent = "File uploaded successfully; \u2714";
       } else {
         console.error("Error uploading file:", xhr.status, xhr.statusText);
         status.textContent = "Error uploading file. Please try again.";

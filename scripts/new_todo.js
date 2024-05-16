@@ -8,12 +8,9 @@ function init() {
     const search_term = searchInput.value.toLowerCase();
     const response = await fetch("/api/todos");
     const data = await response.json();
-    console.log("data", data);
 
     if (data.length > 0) {
       data.forEach((item) => {
-        console.log(item.description.toLowerCase(), "item");
-        console.log(search_term, "search_term");
         if (item.description.toLowerCase().includes(search_term)) {
           const listItem = document.createElement("li");
           const link = document.createElement("a");
@@ -52,7 +49,6 @@ function init() {
     })
     .catch((error) => console.error("Error fetching data:", error));
   const form = document.getElementById("new-todo-form");
-  console.log("here");
   form.onchange = function () {
     const success = document.getElementById("success");
     success.hidden = true;
@@ -61,7 +57,6 @@ function init() {
     event.preventDefault();
     const userid = document.getElementById("user").value;
     const username = document.getElementById(userid).textContent;
-    console.log(username, "username");
     const category = document.getElementById("category").value;
     const description = document.getElementById("description").value;
     const deadline = document.getElementById("deadline").value;
@@ -88,15 +83,13 @@ function init() {
             document.getElementById("priority").value = "";
             document.getElementById("category").value = "Select Category";
             document.getElementById("user").value = "Select User";
-            console.log(userid, "userid");
             const success = document.getElementById("success");
             success.hidden = false;
             const h4 = document.getElementById("current-todos");
             h4.innerHTML = `View all todos for ${username}? <a href="/todos?user=${userid}">Click here</a>`;
           });
       } else {
-        console.error("Failed to create course");
-        console.log("nice try!");
+        console.error("Failed to create todo");
       }
     });
   };

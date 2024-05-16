@@ -1,1 +1,149 @@
-[{"id":1,"name":"Vito Corleone","username":"gamer04","password":"gamer04!","profilePicUrl":"uploads/default.png"},{"id":2,"name":"Michael Corleone","username":"cheer","password":"Cheer","profilePicUrl":"uploads/michael.png"},{"id":3,"name":"Tony Montana","username":"farmgirl","password":"smartKid","profilePicUrl":"uploads/default.png"},{"id":4,"name":"Tom Hagen","username":"corndog","password":"corn!dog","profilePicUrl":"uploads/default.png"},{"id":5,"name":"Sonny Corleone","username":"theaterkid","password":"!theaterkid!","profilePicUrl":"uploads/default.png"},{"id":6,"name":"Al Capone","username":"gamer05","password":"gamer05!","profilePicUrl":"uploads/default.png"},{"id":7,"name":"Kay Adams","username":"betty812","password":"not_telling_you","profilePicUrl":"uploads/default.png"},{"id":8,"name":"Angelo Bruno","username":"dudebro","password":"EPIC!!!27","profilePicUrl":"uploads/default.png"},{"id":9,"name":"Gus Fring","username":"joannamcpherson101","password":"test","profilePicUrl":"uploads/default.png"},{"id":10,"name":"Rico Bandello","username":"mmcpher","password":"test","profilePicUrl":"uploads/default.png"},{"id":11,"name":"Santino 'Sonny' Corleone","username":"honkytonk","password":"test","profilePicUrl":"uploads/default.png"},{"id":12,"name":"Karen Hill","username":"tester","password":"test","profilePicUrl":"uploads/default.png"},{"id":13,"name":"Joe Pesci","username":"pfredman","password":"test","profilePicUrl":"uploads/default.png"},{"id":14,"name":"Paul Cicero","username":"pfreddyman","password":"test","profilePicUrl":"uploads/default.png"},{"id":15,"name":"Benjamin 'Lefty' Ruggiero","username":"dparton","password":"test","profilePicUrl":"uploads/default.png"},{"id":16,"name":"Henry Hill","username":"COBRIEN","password":"test","profilePicUrl":"uploads/default.png"},{"id":17,"name":"Eddie Valiant","username":"LIU","password":"TEST","profilePicUrl":"uploads/default.png"},{"id":18,"name":"Scarface","username":"dylan","password":"test","profilePicUrl":"uploads/default.png"},{"id":19,"name":"Sal Tessio","username":"flast","password":"test","profilePicUrl":"uploads/default.png"},{"id":20,"name":"Dominic Toretto","username":"lala","password":"lala","profilePicUrl":"uploads/default.png"},{"id":21,"name":"Tony Soprano","username":"tsoprano","password":"test","profilePicUrl":"uploads/tony.png"}]
+[
+  {
+    "id": 1,
+    "name": "Vito Corleone",
+    "username": "gamer04",
+    "password": "gamer04!",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 2,
+    "name": "Michael Corleone",
+    "username": "cheer",
+    "password": "Cheer",
+    "profilePicUrl": "uploads/michael.png"
+  },
+  {
+    "id": 3,
+    "name": "Tony Montana",
+    "username": "farmgirl",
+    "password": "smartKid",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 4,
+    "name": "Tom Hagen",
+    "username": "corndog",
+    "password": "corn!dog",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 5,
+    "name": "Sonny Corleone",
+    "username": "theaterkid",
+    "password": "!theaterkid!",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 6,
+    "name": "Al Capone",
+    "username": "gamer05",
+    "password": "gamer05!",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 7,
+    "name": "Kay Adams",
+    "username": "betty812",
+    "password": "not_telling_you",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 8,
+    "name": "Angelo Bruno",
+    "username": "dudebro",
+    "password": "EPIC!!!27",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 9,
+    "name": "Gus Fring",
+    "username": "joannamcpherson101",
+    "password": "test",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 10,
+    "name": "Rico Bandello",
+    "username": "mmcpher",
+    "password": "test",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 11,
+    "name": "Santino 'Sonny' Corleone",
+    "username": "honkytonk",
+    "password": "test",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 12,
+    "name": "Karen Hill",
+    "username": "tester",
+    "password": "test",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 13,
+    "name": "Joe Pesci",
+    "username": "pfredman",
+    "password": "test",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 14,
+    "name": "Paul Cicero",
+    "username": "pfreddyman",
+    "password": "test",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 15,
+    "name": "Benjamin 'Lefty' Ruggiero",
+    "username": "dparton",
+    "password": "test",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 16,
+    "name": "Henry Hill",
+    "username": "COBRIEN",
+    "password": "test",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 17,
+    "name": "Eddie Valiant",
+    "username": "LIU",
+    "password": "TEST",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 18,
+    "name": "Scarface",
+    "username": "dylan",
+    "password": "test",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 19,
+    "name": "Sal Tessio",
+    "username": "flast",
+    "password": "test",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 20,
+    "name": "Dominic Toretto",
+    "username": "lala",
+    "password": "lala",
+    "profilePicUrl": "uploads/default.png"
+  },
+  {
+    "id": 21,
+    "name": "Tony Soprano",
+    "username": "tsoprano",
+    "password": "test",
+    "profilePicUrl": "uploads/tony.png"
+  }
+]

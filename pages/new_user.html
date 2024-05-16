@@ -16,7 +16,10 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#"
-        ><img src="./images/logo.png" style="width: 50px; height: 50px"
+        ><img
+          src="./images/logo.png"
+          alt="logo"
+          style="width: 50px; height: 50px"
       /></a>
       <button
         class="navbar-toggler"
@@ -152,17 +155,8 @@
                   for="fileInput"
                   id="fileInputLabel"
                   style="cursor: pointer"
-                  >Upload Profile Picture?</label
-                >
-                <button
-                  type="button"
-                  class="btn btn-info mt-3 mb-3"
-                  onclick="uploadFile()"
-                  id="upload"
-                  hidden
-                >
-                  Upload
-                </button>
+                  >Upload Profile Picture?
+                </label>
 
                 <div class="form-control mb-3" style="padding-bottom: 9%">
                   <input
@@ -173,11 +167,23 @@
                   />
                 </div>
 
-                <div id="profile"></div>
-                <div id="status" class="mb-3"></div>
-                <button class="btn btn-primary" id="submit" type="submit">
-                  Register
+                <button
+                  type="button"
+                  class="btn btn-sm btn-info mb-3"
+                  onclick="uploadFile()"
+                  id="upload"
+                  hidden
+                >
+                  Upload
                 </button>
+
+                <div id="status" style="color: green" class="mb-3"></div>
+                <div id="profile"></div>
+                <div style="display: flex; justify-content: flex-end">
+                  <button class="btn btn-primary" id="submit" type="submit">
+                    Register
+                  </button>
+                </div>
               </form>
             </div>
           </div>
