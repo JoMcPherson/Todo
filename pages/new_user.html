@@ -90,15 +90,6 @@
               <form class="mt-3" id="register">
                 <h2 class="mb-4">Register</h2>
                 <div class="form-group">
-                  <input
-                    type="file"
-                    id="fileInput"
-                    accept=".png, .jpg, .jpeg"
-                  />
-                  <button onclick="uploadFile()">Upload</button>
-                  <progress id="progressBar" max="100" value="0"></progress>
-                  <div id="profile"></div>
-                  <div id="status"></div>
                   <label for="first-name">First Name</label>
                   <input
                     required
@@ -143,6 +134,33 @@
                     class="form-control"
                   />
                 </div>
+                <label
+                  for="fileInput"
+                  id="fileInputLabel"
+                  style="cursor: pointer"
+                  >Upload Profile Picture?</label
+                >
+                <button
+                  type="button"
+                  class="btn btn-info mt-3 mb-3"
+                  onclick="uploadFile()"
+                  id="upload"
+                  hidden
+                >
+                  Upload
+                </button>
+
+                <div class="form-control mb-3" style="padding-bottom: 9%">
+                  <input
+                    type="file"
+                    id="fileInput"
+                    accept=".png, .jpg, .jpeg"
+                    class="mb-3"
+                  />
+                </div>
+
+                <div id="profile"></div>
+                <div id="status" class="mb-3"></div>
                 <button class="btn btn-primary" id="submit" type="submit">
                   Register
                 </button>

@@ -1,6 +1,20 @@
 window.onload = init;
 
 function init() {
+  const fileInput = document.getElementById("fileInput");
+  const status = document.getElementById("status");
+
+  fileInput.onchange = function () {
+    const file = fileInput.files[0];
+    if (!file) {
+      status.textContent = "Please select a file.";
+      return;
+    } else {
+      const upload = document.getElementById("upload");
+      upload.hidden = false;
+    }
+  };
+
   const searchInput = document.getElementById("searchInput");
   searchInput.addEventListener("input", async function () {
     const dropdownList = document.getElementById("dropdownMenu");
@@ -39,8 +53,8 @@ function init() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     const confirm_password = document.getElementById("confirm-password").value;
-    const profile = document.getElementById("profile").value;
-
+    const profilePicUrl = document.getElementById("profile").value;
+    console.log(profilePicUrl, "profilePicUrl form submit");
     // Check username availability
     fetch(`/api/username_available/${username}`)
       .then((response) => response.json())
@@ -60,7 +74,7 @@ function init() {
                 name,
                 username,
                 password,
-                profile,
+                profilePicUrl,
               }),
             }).then((response) => {
               if (response.status === 201) {
@@ -68,8 +82,7 @@ function init() {
                   console.log(data);
                   form.hidden = true;
                   console.log(form);
-                  alert("Registration successful");
-                  window.location.href = "/";
+                  window.location.href = `/todos?user=${data.id}`;
                 });
               } else {
                 console.log("Registration failed");
@@ -106,6 +119,7 @@ function uploadFile() {
         console.log("File uploaded successfully:", response);
         const profile = document.getElementById("profile");
         profile.value = response.path;
+        console.log(profile.value, "profile value");
         status.textContent = "File uploaded successfully";
       } else {
         console.error("Error uploading file:", xhr.status, xhr.statusText);

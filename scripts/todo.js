@@ -9,7 +9,6 @@ async function init() {
     .then((response) => response.json())
     .then((data) => {
       data.forEach((user) => {
-        console.log(user, "user");
         if (user.id === parseInt(id)) {
           users.innerHTML += `<option value="${user.id}|${user.profilePicUrl}" selected>${user.name}</option>`;
           updateToDos();
@@ -31,8 +30,6 @@ async function init() {
 
     if (data.length > 0) {
       data.forEach((item) => {
-        console.log(item.description.toLowerCase(), "item");
-        console.log(search_term, "search_term");
         if (item.description.toLowerCase().includes(search_term)) {
           const listItem = document.createElement("li");
           const link = document.createElement("a");
@@ -57,11 +54,8 @@ function updateToDos() {
   const userId = idAndProfile[0];
   const profilePicUrl = idAndProfile[1];
   const profilePic = document.getElementById("user-image");
-  if (profilePicUrl) {
-    profilePic.src = `../${profilePicUrl}`;
-  } else {
-    profilePic.src = "../uploads/default.png";
-  }
+  profilePic.src = `../${profilePicUrl}`;
+
   const todos = document.getElementById("todos");
   fetch(`api/todos/byuser/${userId}`)
     .then((response) => response.json())
@@ -69,6 +63,16 @@ function updateToDos() {
       todos.innerHTML = "";
       const row = document.createElement("div");
       row.classList.add("row");
+      if (data.length === 0) {
+        const noToDos = document.createElement("h3");
+        noToDos.innerHTML = "No To-Dos Yet!";
+        noToDos.style.color = "white";
+        const add = document.createElement("p");
+        add.innerHTML =
+          "<a href='./new_todo' class='mt-3' style='color: white'>Click here to start adding to dos</a>";
+        noToDos.appendChild(add);
+        todos.appendChild(noToDos);
+      }
 
       data.forEach((todo) => {
         date = new Date(todo.deadline);

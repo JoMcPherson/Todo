@@ -380,7 +380,7 @@ app.post("/api/users", function (req, res) {
     name: req.body.name,
     username: req.body.username,
     password: req.body.password,
-    profilePicUrl: req.body.profile || "/uploads/default.jpg",
+    profilePicUrl: req.body.profilePicUrl || "uploads/default.png",
   };
 
   users.push(user);
