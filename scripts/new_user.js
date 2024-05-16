@@ -39,6 +39,7 @@ function init() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     const confirm_password = document.getElementById("confirm-password").value;
+    const profile = document.getElementById("profile").value;
 
     // Check username availability
     fetch(`/api/username_available/${username}`)
@@ -59,6 +60,7 @@ function init() {
                 name,
                 username,
                 password,
+                profile,
               }),
             }).then((response) => {
               if (response.status === 201) {
@@ -79,4 +81,38 @@ function init() {
         }
       });
   };
+}
+
+function uploadFile() {
+  const fileInput = document.getElementById("fileInput");
+  const status = document.getElementById("status");
+
+  const file = fileInput.files[0];
+  if (!file) {
+    status.textContent = "Please select a file.";
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "api/upload", true);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        const response = JSON.parse(xhr.responseText);
+        console.log("File uploaded successfully:", response);
+        const profile = document.getElementById("profile");
+        profile.value = response.path;
+        status.textContent = "File uploaded successfully";
+      } else {
+        console.error("Error uploading file:", xhr.status, xhr.statusText);
+        status.textContent = "Error uploading file. Check console for details.";
+      }
+    }
+  };
+
+  xhr.send(formData);
 }

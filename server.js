@@ -1,8 +1,20 @@
 const express = require("express");
 const cors = require("cors");
+const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
 const app = express();
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage });
 
 ///////////////////////////////////////////////////////////////////////
 //   MIDDLEWARE (CONFIGURATIONS) //////////////////////////////////////
@@ -18,6 +30,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static(__dirname));
 
+app.post("/api/upload", upload.single("file"), (req, res) => {
+  if (!req.file) {
+    return res.status(400).send("No file uploaded.");
+  }
+  res.json(req.file);
+});
+
 // Serve static front-end files (HTML, etc.) from "./public"
 // app.use(express.static("public"));
 
@@ -27,6 +46,10 @@ app.use(express.static(__dirname));
 // GET index
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname + "/pages/index.html"));
+});
+
+app.get("/upload", function (req, res) {
+  res.sendFile(path.join(__dirname + "/pages/upload.html"));
 });
 
 app.get("/todos", function (req, res) {
@@ -133,6 +156,7 @@ app.get("/api/users", function (request, response) {
       id: user.id,
       name: user.name,
       username: user.username,
+      profilePicUrl: user.profilePicUrl,
     });
   }
 
@@ -322,19 +346,17 @@ app.delete("/api/todos/:id", function (request, response) {
 });
 
 // POST a new user
-app.post("/api/users", function (request, response) {
+app.post("/api/users", function (req, res) {
   console.info("LOG: Got a POST request to add a user");
-  console.info("LOG: Message body -------->", JSON.stringify(request.body));
+  console.info("LOG: Message body -------->", JSON.stringify(req.body));
 
   // If not all user data passed, reject the request
-  if (!request.body.name || !request.body.username || !request.body.password) {
+  if (!req.body.name || !req.body.username || !req.body.password) {
     console.warn("LOG: **MISSING DATA**: one or more user properties missing");
-    response.status(400).json({
+    return res.status(400).json({
       error:
         "Missing data, can't process: one or more User properties missing.",
     });
-
-    return;
   }
 
   const json = fs.readFileSync(__dirname + "/data/users.json", "utf8");
@@ -342,22 +364,23 @@ app.post("/api/users", function (request, response) {
 
   // Check for duplicate username
   const byUsername = (user) =>
-    user.username.toLowerCase() === request.body.username.toLowerCase();
+    user.username.toLowerCase() === req.body.username.toLowerCase();
   const matchingUser = users.find(byUsername);
 
   // If username already exists, return 403
   if (matchingUser !== undefined) {
     console.warn("LOG: **ERROR: username already exists!");
-    response.status(403).json({ error: "Forbidden: Username already exists!" });
-
-    return;
+    return res
+      .status(403)
+      .json({ error: "Forbidden: Username already exists!" });
   }
 
   const user = {
     id: users.length + 1,
-    name: request.body.name,
-    username: request.body.username,
-    password: request.body.password,
+    name: req.body.name,
+    username: req.body.username,
+    password: req.body.password,
+    profilePicUrl: req.body.profile || "/uploads/default.jpg",
   };
 
   users.push(user);
@@ -366,7 +389,7 @@ app.post("/api/users", function (request, response) {
   // LOG data for tracing
   console.info("LOG: New user added is ->", user);
 
-  response.status(201).json(user);
+  return res.status(201).json(user);
 });
 
 ///////////////////////////////////////////////////////////////////////

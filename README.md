@@ -92,3 +92,7 @@ This web application uses HTML, CSS, Bootstrap, JavaScript, and an Express serve
 ---
 
 ![Register Page](/images/register.png)
+
+## References
+
+### How To Upload Files https://www.youtube.com/watch?v=i8yxx6V9UdM

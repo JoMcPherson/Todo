@@ -8,12 +8,8 @@ async function init() {
     const search_term = searchInput.value.toLowerCase();
     const response = await fetch("/api/todos");
     const data = await response.json();
-    console.log("data", data);
-
     if (data.length > 0) {
       data.forEach((item) => {
-        console.log(item.description.toLowerCase(), "item");
-        console.log(search_term, "search_term");
         if (item.description.toLowerCase().includes(search_term)) {
           const listItem = document.createElement("li");
           const link = document.createElement("a");
@@ -23,7 +19,6 @@ async function init() {
           dropdownList.appendChild(listItem);
         }
       });
-
       if (dropdownList.innerHTML === "") {
         dropdownList.innerHTML =
           '<option value="" selected>No Results</option>';

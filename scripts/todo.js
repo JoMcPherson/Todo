@@ -5,16 +5,16 @@ async function init() {
   const searchParams = new URLSearchParams(window.location.search);
   const id = searchParams.get("user");
   users.innerHTML = "<option id='default'>Select User</option>";
-  console.log(id);
   fetch("api/users")
     .then((response) => response.json())
     .then((data) => {
       data.forEach((user) => {
+        console.log(user, "user");
         if (user.id === parseInt(id)) {
-          users.innerHTML += `<option value="${user.id}" selected>${user.name}</option>`;
+          users.innerHTML += `<option value="${user.id}|${user.profilePicUrl}" selected>${user.name}</option>`;
           updateToDos();
         } else {
-          users.innerHTML += `<option value="${user.id}">${user.name}</option>`;
+          users.innerHTML += `<option value="${user.id}|${user.profilePicUrl}">${user.name}</option>`;
         }
       });
     })
@@ -28,7 +28,6 @@ async function init() {
     const search_term = searchInput.value.toLowerCase();
     const response = await fetch("/api/todos");
     const data = await response.json();
-    console.log("data", data);
 
     if (data.length > 0) {
       data.forEach((item) => {
@@ -54,9 +53,17 @@ async function init() {
 
 function updateToDos() {
   const user = document.getElementById("user-selection").value;
-
+  const idAndProfile = user.split("|"); // Split the value using the pipe character
+  const userId = idAndProfile[0];
+  const profilePicUrl = idAndProfile[1];
+  const profilePic = document.getElementById("user-image");
+  if (profilePicUrl) {
+    profilePic.src = `../${profilePicUrl}`;
+  } else {
+    profilePic.src = "../uploads/default.png";
+  }
   const todos = document.getElementById("todos");
-  fetch(`api/todos/byuser/${user}`)
+  fetch(`api/todos/byuser/${userId}`)
     .then((response) => response.json())
     .then((data) => {
       todos.innerHTML = "";

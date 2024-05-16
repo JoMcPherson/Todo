@@ -14,6 +14,10 @@ h2,
 h3 {
   font-family: "Gribble", sans-serif;
 }
+.row {
+  display: flex;
+  justify-content: center;
+}
 
 .hero-image {
   position: relative;
@@ -77,4 +81,9 @@ nav {
   font-size: 24px;
   padding: 1%;
   border-radius: 10px;
+}
+
+#user-image {
+  max-width: 15%;
+  border-radius: 50%;
 }
