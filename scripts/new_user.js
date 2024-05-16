@@ -99,12 +99,7 @@ function init() {
 function uploadFile() {
   const fileInput = document.getElementById("fileInput");
   const status = document.getElementById("status");
-
   const file = fileInput.files[0];
-  if (!file) {
-    status.textContent = "Please select a file.";
-    return;
-  }
 
   const formData = new FormData();
   formData.append("file", file);
@@ -116,14 +111,12 @@ function uploadFile() {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         const response = JSON.parse(xhr.responseText);
-        console.log("File uploaded successfully:", response);
         const profile = document.getElementById("profile");
         profile.value = response.path;
-        console.log(profile.value, "profile value");
         status.textContent = "File uploaded successfully";
       } else {
         console.error("Error uploading file:", xhr.status, xhr.statusText);
-        status.textContent = "Error uploading file. Check console for details.";
+        status.textContent = "Error uploading file. Please try again.";
       }
     }
   };

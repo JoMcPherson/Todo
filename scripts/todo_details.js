@@ -45,6 +45,9 @@ async function init() {
       <div class="card-body card mb-3 shadow-sm mr-2" >
       <img src="../images/thumbtack.png" class="card-img-left" style="width: 2rem; margin-right: 0.5rem;" alt="Thumbtack Image">
       <h3 class="card-title">${user.name}</h3>
+      <div class="row">
+      <img src="${user.profilePicUrl}" id="user-image" class="mb-3" />
+    </div>
       <h5 class="card-title">${todo.description}</h5>
       <p class="card-text">
         Deadline: ${date.toLocaleDateString("en-US", {
