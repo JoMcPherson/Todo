@@ -60,8 +60,8 @@ function init() {
       .then((response) => response.json())
       .then((data) => {
         if (!data.available) {
-          alert("Username already taken");
-          document.getElementById("username").value = "";
+          const usernameAlert = document.getElementById("username-danger");
+          usernameAlert.hidden = false;
         } else {
           // Username is available, proceed with form submission
           if (password == confirm_password) {

@@ -95,4 +95,4 @@ This web application uses HTML, CSS, Bootstrap, JavaScript, and an Express serve
 
 ## References
 
-### How To Upload Files https://www.youtube.com/watch?v=i8yxx6V9UdM
+### [How to Upload Files in Node.js Using Express and Multer](https://www.youtube.com/watch?v=i8yxx6V9UdM)
