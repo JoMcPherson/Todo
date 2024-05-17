@@ -138,12 +138,5 @@
     "username": "lala",
     "password": "lala",
     "profilePicUrl": "uploads/default.png"
-  },
-  {
-    "id": 21,
-    "name": "Tony Soprano",
-    "username": "tsoprano",
-    "password": "test",
-    "profilePicUrl": "uploads/tony.png"
   }
 ]

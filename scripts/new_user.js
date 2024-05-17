@@ -83,7 +83,9 @@ function init() {
               }
             });
           } else {
-            alert("Passwords do not match");
+            const passwordAlert = document.getElementById("password-danger");
+            console.log(passwordAlert);
+            passwordAlert.hidden = false;
           }
         }
       });

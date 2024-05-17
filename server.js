@@ -396,6 +396,27 @@ app.post("/api/users", function (req, res) {
 // Start the server ///////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 
+app.post("/login", (req, res) => {
+  const { username, password } = req.body;
+  const json = fs.readFileSync(__dirname + "/data/users.json", "utf8");
+  const users = JSON.parse(json);
+  const user = users.find(
+    (u) => u.username === username && u.password === password
+  );
+  if (user) {
+    res
+      .status(200)
+      .json({ message: "Login successful", username: user.username });
+  } else {
+    res.status(401).json({ message: "Invalid username or password" });
+  }
+});
+
+app.post("/logout", (req, res) => {
+  // In a real application, you might handle session destruction here
+  res.status(200).json({ message: "Logout successful" });
+});
+
 const server = app.listen(8083, () => {
   const port = server.address().port;
   console.info("App listening at port", port);
