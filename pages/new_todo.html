@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="../scripts/new_todo.js"></script>
+    <script src="../scripts/main.js"></script>
     <link rel="stylesheet" href="../styles/styles.css" />
     <title>Add To Do</title>
   </head>
@@ -54,6 +55,20 @@
               >
             </li>
           </ul>
+          <li
+          class="nav-item active"
+          style="display: flex; justify-content: flex-end"
+        >
+  
+          <a
+            class="nav-link"
+            id="logout"
+            hidden
+            onclick="logout()"
+            href="/logout"
+            >Logout</a
+          >
+        </li>
           <form class="form-inline my-2 my-lg-0">
             <div class="dropdown">
               <input

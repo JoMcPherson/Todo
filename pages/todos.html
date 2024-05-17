@@ -11,6 +11,7 @@
     />
     <link rel="stylesheet" href="../styles/styles.css" />
     <script src="../scripts/todo.js"></script>
+    <script src="../scripts/main.js"></script>
     <title>Home</title>
   </head>
   <body>
@@ -60,6 +61,19 @@
             <a class="nav-link" href="/new_user">Register </a>
           </li>
         </ul>
+        <li
+          class="nav-item active"
+          style="display: flex; justify-content: flex-end"
+        >
+          <a
+            class="nav-link"
+            id="logout"
+            hidden
+            onclick="logout()"
+            href="/logout"
+            >Logout</a
+          >
+        </li>
         <form class="form-inline my-2 my-lg-0">
           <div class="dropdown">
             <input

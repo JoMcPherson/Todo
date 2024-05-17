@@ -1,6 +1,12 @@
 window.onload = init;
 
 function init() {
+  const username = localStorage.getItem("username");
+
+  if (username) {
+    document.getElementById("logout").hidden = false;
+  }
+
   const fileInput = document.getElementById("fileInput");
   const status = document.getElementById("status");
 

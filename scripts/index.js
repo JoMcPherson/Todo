@@ -2,14 +2,13 @@ window.onload = init;
 
 async function init() {
   const username = localStorage.getItem("username");
+  console.log(username, "username");
 
   if (username) {
     document.getElementById("nav").hidden = false;
     document.getElementById("loggedout").hidden = true;
     document.getElementById("main").hidden = false;
     document.getElementById("logout").hidden = false;
-    document.getElementById("username").textContent = username;
-    console.log(username, "is logged in");
   }
 
   const searchInput = document.getElementById("searchInput");

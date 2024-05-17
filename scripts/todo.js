@@ -1,6 +1,11 @@
 window.onload = init;
 
 async function init() {
+  const username = localStorage.getItem("username");
+
+  if (username) {
+    document.getElementById("logout").hidden = false;
+  }
   const users = document.getElementById("user-selection");
   const searchParams = new URLSearchParams(window.location.search);
   const id = searchParams.get("user");

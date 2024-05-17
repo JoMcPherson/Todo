@@ -1,6 +1,12 @@
 window.onload = init;
 
 async function init() {
+  const username = localStorage.getItem("username");
+
+  if (username) {
+    document.getElementById("logout").hidden = false;
+  }
+
   const searchInput = document.getElementById("searchInput");
   searchInput.addEventListener("input", async function () {
     const dropdownList = document.getElementById("dropdownMenu");
