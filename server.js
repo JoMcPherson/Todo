@@ -391,10 +391,9 @@ app.post("/api/users", function (req, res) {
 
   return res.status(201).json(user);
 });
-
-///////////////////////////////////////////////////////////////////////
-// Start the server ///////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////
+app.get("/login", function (req, res) {
+  res.sendFile(path.join(__dirname + "/pages/login.html"));
+});
 
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
@@ -413,9 +412,12 @@ app.post("/login", (req, res) => {
 });
 
 app.post("/logout", (req, res) => {
-  // In a real application, you might handle session destruction here
   res.status(200).json({ message: "Logout successful" });
 });
+
+///////////////////////////////////////////////////////////////////////
+// Start the server ///////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
 
 const server = app.listen(8083, () => {
   const port = server.address().port;

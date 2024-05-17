@@ -84,7 +84,6 @@ function init() {
             });
           } else {
             const passwordAlert = document.getElementById("password-danger");
-            console.log(passwordAlert);
             passwordAlert.hidden = false;
           }
         }
