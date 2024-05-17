@@ -15,11 +15,11 @@
     <title>Home</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
       <a class="navbar-brand" href="#"
         ><img
-          alt="logo"
           src="./images/logo.png"
+          alt="logo"
           style="width: 50px; height: 50px"
       /></a>
       <button
@@ -42,39 +42,40 @@
           </li>
           <li class="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle active"
+              class="nav-link active dropdown-toggle"
               href="#"
               id="navbarDropdown"
               role="button"
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
+              >To Do</a
             >
-              To Do
-            </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/todos">View To Dos</a>
               <a class="dropdown-item" href="/new_todo">Add a To Do</a>
             </div>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/new_user">Register </a>
+            <a class="nav-link" href="/new_user">Register</a>
           </li>
         </ul>
-        <li
-          class="nav-item active"
-          style="display: flex; justify-content: flex-end"
-        >
-          <a
-            class="nav-link"
-            id="logout"
-            hidden
-            onclick="logout()"
-            href="/logout"
-            >Logout</a
-          >
-        </li>
         <form class="form-inline my-2 my-lg-0">
+          <ul class="mt-3">
+            <li
+              class="nav-item active"
+              style="display: flex; justify-content: flex-end"
+            >
+              <a
+                class="nav-link"
+                id="logout"
+                hidden
+                onclick="logout()"
+                href="/logout"
+                >Logout</a
+              >
+            </li>
+          </ul>
           <div class="dropdown">
             <input
               class="form-control mr-sm-2 dropdown-toggle"
@@ -84,7 +85,6 @@
               id="searchInput"
               data-toggle="dropdown"
               aria-haspopup="true"
-              aria-expanded="false"
             />
             <div
               id="dropdownMenu"

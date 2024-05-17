@@ -64,13 +64,13 @@ h2 {
   padding: 1%;
   border-radius: 10px;
 }
-#home-link {
+.home-link {
   z-index: 2;
   text-align: center;
   color: white;
 }
 
-#home-link:hover {
+.home-link:hover {
   text-decoration: underline;
 }
 nav {

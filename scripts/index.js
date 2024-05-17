@@ -2,7 +2,6 @@ window.onload = init;
 
 async function init() {
   const username = localStorage.getItem("username");
-  console.log(username, "username");
 
   if (username) {
     document.getElementById("nav").hidden = false;
